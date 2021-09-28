@@ -15,10 +15,16 @@
     box-sizing: border-box;
 }
 
+*:focus
+{
+    outline: none;
+}
+
 
 a
 {
     text-decoration: none;
+    color: rgb(225 189 0);
 }
 
 html , body
@@ -32,11 +38,443 @@ html , body
 
 body
 {
-    background: whitesmoke;
+    background: linear-gradient(
+        317deg, rgb(255 165 0 / 50%), rgb(255 229 180 / 50%)) , #ffcc70;
     font-family: robotSlab , sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
 /* app */
 
 
+/* icons */
+.appHeader-logo div{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: gold;
+}
+
+.appHeader-logo div img{
+    width: 25px;
+    height: 25px;
+}
+
+
+.app
+{
+    width: 80%;
+    height: 90%;
+    border-radius: 9px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.appHeader
+{
+    border-top-left-radius: 9px;
+    height: 15%;
+    display: flex;
+    background: rgb(255 165 0 / 20%);
+    border-top-right-radius: 9px;
+    /* justify-content: space-between; */
+}
+
+.appHeader-logoAndTitle
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 25%;
+    color: #555;
+}
+
+.appHeader-logo div
+{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: gold;
+}
+
+.appHeader-logo div img
+{
+    width: 25px;
+    height: 25px;
+}
+
+.appHeader-title
+{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.appHeader-searchEngine
+{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.appHeader-searchEngine-form
+{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.appHeader-searchEngine-form-input-text
+{
+    width: 60%;
+    height: 80%;
+    border: none;
+    border-radius: 40px;
+    font-family: 'robotSlab' , sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 15px;
+    padding-right: 73px;
+    overflow: hidden;
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: rgba(204, 204, 204, 0.7);
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(204, 204, 204, 0.7);
+}
+
+::placeholder {
+    color: rgba(204, 204, 204, 0.7);
+}
+
+.appHeader-searchEngine-form-btn
+{
+    width: 30%;
+    height: 80%;
+    border: none;
+    background: linear-gradient(
+317deg, rgb(255 165 0 / 50%), rgb(255 215 0 / 50%)) , rgb(255 165 0 / 70%);
+    border-radius: 40px;
+    font-family: 'robotSlab' , sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -60px;
+    cursor: pointer;
+}
+
+
+
+.appHeader-searchEngine-form-btn-img{
+    background-image: url(../resources/static/img/search.png);
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    display: block;
+    width: 25px;
+    height: 25px;
+}
+
+
+.appHeader-addReceAndBookMark
+{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-family: 'robotSlab' , sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    gap: 20px;
+}
+
+.appHeader-addRecipes , .appHeader-bookmarks
+{
+    display: flex;
+    cursor: pointer;
+}
+
+
+.appHeader-addRecipes-img{
+    background-image: url(../resources/static/img/addRec.png);
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    display: block;
+    width: 25px;
+    height: 25px;
+}
+.appHeader-bookmarks-img{
+    background-image: url(../resources/static/img/addBookmark.png);
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    display: block;
+    width: 25px;
+    height: 25px;
+}
+
+
+.appBody
+{
+    display: flex;
+    height: 85%;
+}
+
+.appBody-left-window
+{
+    width: 30%;
+    background: white;
+}
+
+.appBody-right-window
+{
+    width: 70%;
+    background: whitesmoke;
+}
+
+.appBody-left-window-recepies-container
+{
+    height: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.appBody-left-window-recepies-container-inner
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.appBody-left-window-recepies-container-page
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 700;
+    color: orangered;
+}
+
+.appBody-left-window-recepies-container-page-el
+{
+    cursor: pointer;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.appBody-left-window-recepies-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.appBody-left-window-recepies-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+.appBody-left-window-recepie-option
+{
+    display: flex;
+    height: 100px;
+    background: rgb(255 215 0 / 20%);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.appBody-left-window-recepie-option-img
+{
+    width: 40%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.appBody-left-window-recepie-option-img img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.appBody-left-window-recepie-option-title
+{
+    width: 30%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0 15px;
+    color: orange;
+}
+
+.appBody-left-window-recepie-option-publisher
+{
+    width: 30%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    color: #444;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+
+
+.appBody-left-window-credit
+{
+    height: 10%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+    font-weight: 400;
+    background: darkslategray;
+}
+
+.recipe
+{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.recipe-header
+{
+    height: 30%;
+    border-radius: 9px;
+    box-shadow: 0 6px 0px -1px rgb(255 165 0 / 60%);
+}
+
+.recipe-header-img
+{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+
+
+.recipe-body
+{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-body-header
+{
+    height: 15%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #555;
+}
+
+.recipe-body-data
+{
+    height: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+    background: rgb(255 165 0 / 10%);
+}
+
+.recipe-body-ingredients
+{
+    height: 60%;
+    background: rgb(255 165 0 / 30%);
+    padding: 15px;
+    color: #333;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.recipe-body-ingredients::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.recipe-body-ingredients {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.recipe-body-ingredients-unit
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.recipe-body-ingredients-unit p span
+{
+color: red;
+}
+
+
+.appBody-right-window-message
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 50px;
+    font-weight: 700;
+    color: #333;
+}
+
+.appBody-right-window-loading-message
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 50px;
+    font-weight: 700;
+    color: #333;
+}
+
+.hidden
+{
+    visibility: hidden !important;
+}
